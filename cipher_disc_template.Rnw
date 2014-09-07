@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[top=0.5in, bottom=0.5in, left=1in, right=1in]{geometry}
+\pagestyle{empty}
+\title{Casear Shift Cipher Disc}
+\author{Andy Lyons}
+\date{September 6, 2014}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+ 
+\begin{center}
+{\bf \Large Casear Shift Cipher Disc\\}
+\end{center}
+ 
+\textbf{Instructions}: Cut out the smaller disc with a pair of scissors and place it on the larger disc so the centers line up. Pin them together using a thumb-tack and a piece of corrugated carboard on the back. You can now quickly encipher or decipher messages using a Casear Shift.\\
+\\
+
+\setkeys{Gin}{width=1\textwidth}
+<<circle_pair, echo=FALSE, fig=TRUE, height=4, width=8>>=
+source('./plot_cipher_disc.R')
+par(mfrow=c(1,2), mar=c(0.01, 0.01, 0.01, 0.01))
+outer_rad <- 1
+inner_rad <- 0.79
+plot_cipher_ring(chars=letters, radius=outer_rad, xlim=c(-outer_rad,outer_rad), innerRing=0.8)
+plot_cipher_ring(chars=LETTERS, radius=inner_rad, xlim=c(-outer_rad,outer_rad), cexLab=1.2)
+@
+
+% \bigskip
+\vspace{0.75 in}
+
+\begin{center}
+{\bf \Large Casear Shift Cipher Disc\\}
+\end{center}
+ 
+\textbf{Instructions}: Cut out the smaller disc with a pair of scissors and place it on the larger disc so the centers line up. Pin them together using a thumb-tack and a piece of corrugated carboard on the back. You can now quickly encipher or decipher messages using a Casear Shift.\\
+\\
+
+\setkeys{Gin}{width=1\textwidth}
+<<bottomplot, echo=FALSE, fig=TRUE, height=4, width=8>>=
+<<circle_pair>>
+@
+
+\end{document}
